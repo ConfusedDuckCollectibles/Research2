@@ -17,3 +17,7 @@ Use the existing tools and bounded local or standard public CPU workflows. Prese
 ## Finding labels
 
 `discoveries/` indexes measured findings, including negative findings; the name does not assert that a method is new to science. `breakthroughs/` is reserved for a candidate supported by a precise claim, strong comparisons, appropriate independent replication, a relevant prior-art review, and reproducible evidence. Publication alone does not meet that threshold.
+
+## Companion checkpoint
+
+Research3 has completed and independently audited its coefficient-packet TCP study. Both performance criteria failed, despite720/720 correct trials and all primary fidelity gates. Read its `docs/coefficient_results.md` before reusing a weaker compact-packet comparator or overlooking cold side-information cost. Its `docs/statebridge_information_recovery.md` gives a conditional exact-arithmetic characterization; a bounded authentic-state precision assay is being designed there, with no new outcome yet. Read the current Research3 worker state before starting potentially overlapping work. Neither result changes the completed Research2 controller findings.

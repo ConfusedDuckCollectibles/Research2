@@ -2,10 +2,10 @@
   "schema_version": 1,
   "status": "ready",
   "worker_id": null,
-  "updated_at_utc": "2026-11-24T07:50:00Z",
+  "updated_at_utc": "2026-11-24T11:55:39Z",
   "current_task": "Completed and audited causal latency control study",
   "stage": "complete_audited_negative_result",
-  "next_action": "Read docs/latency_results.md and the audit receipt; diagnose existing traces without remeasurement, then propose a materially different hypothesis with fresh held-out data before any further experiment",
+  "next_action": "Read docs/latency_results.md and the audit receipt; diagnose existing traces without remeasurement only if a materially different falsifiable hypothesis emerges. Read the companion Research3 checkpoint before allocating another study; its completed coefficient transport results also require strong comparisons and explicit setup accounting. Any new Research2 experiment needs fresh held-out data and its own design.",
   "last_completed_study": "docs/latency_results.md",
   "last_completed_commit": "b57677c3afcad5b68e452b5eea392775e8ba2236",
   "known_result": "360/360 held-out sessions correct; fitted controller 2.02% slower than the selected miss guard and 3.92% slower than cache/delta; three of five engineering gates failed. Independent reconstruction/accounting audit passed 196,646 checks with zero benchmark invocations.",
@@ -22,5 +22,13 @@
   "completed_workflow_run": 45347593386,
   "completed_workflow_job": 138285820298,
   "completed_audit_run": 45349409159,
-  "audit_receipt_path": "results/latency_audit_receipt.json"
+  "audit_receipt_path": "results/latency_audit_receipt.json",
+  "companion_research": {
+    "repository": "ConfusedDuckCollectibles/Research3",
+    "coefficient_report": "https://github.com/ConfusedDuckCollectibles/Research3/blob/5490fe5431e528d979c87dbad4f556d3bbf3b1f6/docs/coefficient_results.md",
+    "coefficient_result": "720 correct TCP trials,300 diagnostics; both performance criteria failed despite passing fidelity checks. The optimized Gram baseline captures nearly all shaped-link savings; setup and strong comparators remain essential.",
+    "information_note": "https://github.com/ConfusedDuckCollectibles/Research3/blob/b9f3265625eaae321e4f3b3c2a105487a4a1b6ca/docs/statebridge_information_recovery.md",
+    "information_status": "Reviewed exact-arithmetic conditional information characterization; no authentic-state numerical result yet.",
+    "coordination": "Read Research3/research_state.json before scheduling companion work; its active worker is preparing a separately frozen model-state numerical assay."
+  }
 }

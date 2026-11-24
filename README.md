@@ -14,6 +14,12 @@ The preceding [216-run real-wire study](docs/network_results.md) also found that
 
 The first experiment is deliberately small and reproducible. **It does not establish a model speedup or a new universal AI language.** Structured packets still contain ordinary text. They make task identity, operations, references and revision checks explicit; they do not transfer neural hidden states.
 
+## Companion research: information and numerical precision
+
+[Research3's audited coefficient-packet study](https://github.com/ConfusedDuckCollectibles/Research3/blob/5490fe5431e528d979c87dbad4f556d3bbf3b1f6/docs/coefficient_results.md) completed 720 correct TCP exchanges and 300 numerical diagnostics, but failed both performance criteria. Its compact message helped under imposed bandwidth limits; the strongest optimized Gram control captured almost all of that benefit, while shared-table cold setup was expensive. This reinforces the need for complete cost accounting and strong comparisons across both projects.
+
+The separately reviewed [information-recovery note](https://github.com/ConfusedDuckCollectibles/Research3/blob/b9f3265625eaae321e4f3b3c2a105487a4a1b6ca/docs/statebridge_information_recovery.md) characterizes what an aligned latent prefix preserves in exact arithmetic when its reference is known. It distinguishes mathematical recoverability from finite-precision usability and task performance. These are companion findings; they do not change this repository's negative controller result or establish a breakthrough.
+
 ## What works
 
 - A versioned envelope with five operations: request, result, update, question and error.
