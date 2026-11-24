@@ -2,13 +2,15 @@
 
 A runnable research prototype for **typed agent handoffs, checked artifact references, and versioned shared state**. The question is whether a communication format and a state-reuse strategy reduce total work while preserving what a receiving agent needs.
 
-## Latest measured outcome: simple baselines still win
+## Latest measured outcome: fitted latency control did not beat strong baselines
 
-The frozen real-wire study completed **216 of 216 loopback TCP runs with exact receiver reconstruction**. The recent re-probing policy was **never the fastest median among the four tested policies** across 18 workload/profile cases: simple cache/delta won 11 cases, and always-inline won 7.
+The frozen follow-up completed **360 of 360 held-out TCP sessions with exact receiver reconstruction**. The controller fitted reply and byte costs from past observations, with its own computation and recovery traffic charged to completion time. It was **2.02% slower than the tuning-selected miss guard** and **3.92% slower than simple cache/delta** on the predeclared equal-case paired metric. Three of five engineering gates failed.
 
-Recent re-probing beat cache/delta in three imposed delay/pacing conditions, but always-inline was faster in all three. This is a measured negative result for a general adaptive-speed claim. All messages contained actual serialized inline/reference/delta/recovery/ACK data, with real length framing, receiver-only cache loss, and charged waits. No production-network or LLM speed claim follows.
+All 324 tuning sessions and the selected settings were published before the single held-out run. An independent read-only reconstruction and accounting audit passed **196,646 checks without invoking either benchmark again**. The full report includes every case, all paired model/guard ratios, failures, traffic, and the disclosed change from the tuning host to a GitHub CPU runner.
 
-Read the [complete all-case timing report](docs/network_results.md), [frozen network design](docs/network_design.md), [summary](results/network.json), and [full observations](results/network_full.json.gz). The next proposed gate is to optimize and charge actual completion time and controller overhead against both simple baselines on fresh profiles; that follow-up has **not** been executed.
+Read the [complete latency report](docs/latency_results.md), [frozen design](docs/latency_design.md), [pre-outcome execution disclosure](docs/latency_execution_amendment.md), [summary](results/latency.json), [complete observations](results/latency_full.json.gz), and [audit receipt](results/latency_audit_receipt.json). This is a negative result for the tested controller, with no production-network, LLM speed, or breakthrough claim.
+
+The preceding [216-run real-wire study](docs/network_results.md) also found that a simple cache or inline policy had the fastest median in every tested case. The later study above directly charged a completion-time objective and retained stronger comparisons.
 
 The first experiment is deliberately small and reproducible. **It does not establish a model speedup or a new universal AI language.** Structured packets still contain ordinary text. They make task identity, operations, references and revision checks explicit; they do not transfer neural hidden states.
 
@@ -24,6 +26,7 @@ The first experiment is deliberately small and reproducible. **It does not estab
 - A systematic cache/admission experiment with 342 tuning workloads, 936 held-out workloads, strong direct-cache baselines, and cache-loss stress tests.
 - A separately frozen recovery experiment with recent-history estimation, bounded re-probing, and explicitly charged current-status feedback.
 - A real framed loopback TCP implementation with receiver-validated payloads, declared byte pacing/reply holdoff, and a frozen 216-run timing study.
+- A causal completion-time controller, 324-run tuning study, 360-run held-out study, and read-only reconstruction/accounting audit; the controller's negative performance result is retained.
 
 Python 3.10 or later is sufficient. The runtime and tests use the standard library; no model, tokenizer, GPU or API key is needed for the deterministic experiment.
 

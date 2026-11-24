@@ -1,15 +1,14 @@
 {
   "schema_version": 1,
-  "status": "active",
-  "worker_id": "chatgpt-active-research-20261124T052021Z",
-  "updated_at_utc": "2026-11-24T07:37:01Z",
-  "lease_expires_at_utc": "2026-11-24T09:37:01Z",
-  "current_task": "Audit and interpret the completed causal latency controller study",
-  "stage": "heldout_complete_audit_pending",
-  "next_action": "Execute the read-only accounting audit, publish its evidence and the complete interpretation, then investigate new hypotheses without retuning these held-out cases",
-  "last_completed_study": "results/latency.json",
+  "status": "ready",
+  "worker_id": null,
+  "updated_at_utc": "2026-11-24T07:50:00Z",
+  "current_task": "Completed and audited causal latency control study",
+  "stage": "complete_audited_negative_result",
+  "next_action": "Read docs/latency_results.md and the audit receipt; diagnose existing traces without remeasurement, then propose a materially different hypothesis with fresh held-out data before any further experiment",
+  "last_completed_study": "docs/latency_results.md",
   "last_completed_commit": "b57677c3afcad5b68e452b5eea392775e8ba2236",
-  "known_result": "360/360 held-out sessions correct; fitted controller2.02% slower than selected miss guard and3.92% slower than cache_delta; three of five engineering gates failed",
+  "known_result": "360/360 held-out sessions correct; fitted controller 2.02% slower than the selected miss guard and 3.92% slower than cache/delta; three of five engineering gates failed. Independent reconstruction/accounting audit passed 196,646 checks with zero benchmark invocations.",
   "breakthrough_claimed": false,
   "active_workflow_run": null,
   "resume_instructions": "docs/continuation.md",
@@ -21,5 +20,7 @@
   "execution_note": "docs/latency_execution_amendment.md",
   "workflow_path": ".github/workflows/latency-heldout-frozen-v1.yml",
   "completed_workflow_run": 45347593386,
-  "completed_workflow_job": 138285820298
+  "completed_workflow_job": 138285820298,
+  "completed_audit_run": 45349409159,
+  "audit_receipt_path": "results/latency_audit_receipt.json"
 }

@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "kind": "log_derived_audit_receipt",
+  "scope": "This receipt reproduces the successful audit summary emitted in the GitHub job log. The complete audit/latency_audit.json is retained separately in the named artifact; this is not that full artifact.",
+  "audit_run_id": 45349409159,
+  "audit_job_id": 138291796761,
+  "audit_source_commit": "7d327ec13eecb337358c273d6287d8738b89e5fe",
+  "audited_results_commit": "b57677c3afcad5b68e452b5eea392775e8ba2236",
+  "log_timestamp_utc": "2026-11-24T07:37:32.9476567Z",
+  "summary": {
+    "passed": true,
+    "checks": 196646,
+    "error": null,
+    "benchmark_invocations": 0,
+    "tuning_raw_audit": {
+      "totals": {
+        "sessions": 324,
+        "handoffs": 5832,
+        "stream_bytes": 14768938,
+        "frames": 13168,
+        "misses": 590,
+        "forced": 514
+      },
+      "by_policy": {
+        "recent_reprobe_W4K4": {
+          "sessions": 36,
+          "handoffs": 648,
+          "stream_bytes": 1359264,
+          "frames": 1476,
+          "misses": 72,
+          "forced": 36
+        },
+        "inline": {
+          "sessions": 36,
+          "handoffs": 648,
+          "stream_bytes": 3359880,
+          "frames": 1332,
+          "misses": 0,
+          "forced": 0
+        },
+        "latency_model_lambda0.5_K4": {
+          "sessions": 36,
+          "handoffs": 648,
+          "stream_bytes": 1725572,
+          "frames": 1448,
+          "misses": 58,
+          "forced": 57
+        },
+        "miss_guard_K2": {
+          "sessions": 36,
+          "handoffs": 648,
+          "stream_bytes": 1168704,
+          "frames": 1476,
+          "misses": 72,
+          "forced": 72
+        },
+        "latency_model_lambda0.5_K2": {
+          "sessions": 36,
+          "handoffs": 648,
+          "stream_bytes": 1463716,
+          "frames": 1488,
+          "misses": 78,
+          "forced": 119
+        },
+        "latency_model_lambda0.9_K2": {
+          "sessions": 36,
+          "handoffs": 648,
+          "stream_bytes": 1423811,
+          "frames": 1486,
+          "misses": 77,
+          "forced": 118
+        },
+        "cache_delta": {
+          "sessions": 36,
+          "handoffs": 648,
+          "stream_bytes": 1133412,
+          "frames": 1596,
+          "misses": 132,
+          "forced": 0
+        },
+        "miss_guard_K4": {
+          "sessions": 36,
+          "handoffs": 648,
+          "stream_bytes": 1392888,
+          "frames": 1428,
+          "misses": 48,
+          "forced": 48
+        },
+        "latency_model_lambda0.9_K4": {
+          "sessions": 36,
+          "handoffs": 648,
+          "stream_bytes": 1741691,
+          "frames": 1438,
+          "misses": 53,
+          "forced": 64
+        }
+      }
+    },
+    "heldout_raw_audit": {
+      "totals": {
+        "sessions": 360,
+        "handoffs": 6570,
+        "stream_bytes": 24517450,
+        "frames": 14792,
+        "misses": 646,
+        "forced": 231
+      },
+      "by_policy": {
+        "recent_reprobe_W4K4": {
+          "sessions": 72,
+          "handoffs": 1314,
+          "stream_bytes": 3406743,
+          "frames": 3078,
+          "misses": 189,
+          "forced": 27
+        },
+        "latency_model_lambda0.5_K4": {
+          "sessions": 72,
+          "handoffs": 1314,
+          "stream_bytes": 4491919,
+          "frames": 2930,
+          "misses": 115,
+          "forced": 114
+        },
+        "miss_guard_K4": {
+          "sessions": 72,
+          "handoffs": 1314,
+          "stream_bytes": 3680064,
+          "frames": 2880,
+          "misses": 90,
+          "forced": 90
+        },
+        "cache_delta": {
+          "sessions": 72,
+          "handoffs": 1314,
+          "stream_bytes": 3098214,
+          "frames": 3204,
+          "misses": 252,
+          "forced": 0
+        },
+        "inline": {
+          "sessions": 72,
+          "handoffs": 1314,
+          "stream_bytes": 9840510,
+          "frames": 2700,
+          "misses": 0,
+          "forced": 0
+        }
+      }
+    }
+  },
+  "artifact": {
+    "id": 14898908985,
+    "name": "latency-audit-45349409159-attempt-1",
+    "size_in_bytes": 4725,
+    "url": "https://api.github.com/repos/ConfusedDuckCollectibles/Research2/actions/artifacts/14898908985",
+    "archive_download_url": "https://api.github.com/repos/ConfusedDuckCollectibles/Research2/actions/artifacts/14898908985/zip",
+    "expired": false,
+    "created_at": "2026-11-24T07:37:33Z",
+    "expires_at": "2027-02-22T07:37:18Z",
+    "updated_at": "2026-11-24T07:37:33Z",
+    "digest": "sha256:c6fdd0096ed81f08b7e66cac26801e8fdc75a59ca945396c55bcc346c4c21d37",
+    "workflow_run": {
+      "id": 45349409159,
+      "repository_id": 1469572132,
+      "head_repository_id": 1469572132,
+      "head_branch": "main",
+      "head_sha": "7d327ec13eecb337358c273d6287d8738b89e5fe"
+    }
+  },
+  "replay_limitation": "Data, canonical framed streams, accounting, selection and statistics are rebuilt from retained reports. The audit reuses the frozen controller and decoder for observed-history replay; it is not an independent controller implementation.",
+  "benchmark_rerun": false
+}
