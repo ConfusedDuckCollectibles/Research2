@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "handoff-lab"
+version = "0.1.0"
+description = "Reproducible experiments in typed agent handoffs and versioned shared state"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+handoff-lab = "handoff_lab.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,112 @@
+{
+  "audit": {
+    "artifacts": [
+      {
+        "ref": {
+          "id": "source/pricing.py",
+          "rev": 2,
+          "sha256": "96706871f3bc7fa987cc67ada906610901eaae92290957924f5f3c8a4403e3bb"
+        },
+        "value": {
+          "constraints": [
+            "Preserve the public function signature and the existing 10 percent rate."
+          ],
+          "file": "pricing.py",
+          "regression_checks": [
+            "discount(99) == 99",
+            "discount(101) == 90.9",
+            "discount(100) == 90.0"
+          ],
+          "scope": "Single-file patch. Return a handoff summary; do not execute code.",
+          "source": "def discount(total):\n    if total > 100:\n        return total * 0.9\n    return total\n"
+        }
+      }
+    ],
+    "body": {
+      "next_step": "Implement this replacement and run the latest regression checks.",
+      "replacement": "if total >= 100:"
+    },
+    "from": "investigator",
+    "op": "result",
+    "task": "discount-boundary",
+    "to": "implementer",
+    "v": 1
+  },
+  "expected_receiver_summary": {
+    "file": "pricing.py",
+    "regression_checks": [
+      "discount(99) == 99",
+      "discount(101) == 90.9",
+      "discount(100) == 90.0"
+    ],
+    "replacement": "if total >= 100:",
+    "revision": 2,
+    "task_id": "discount-boundary"
+  },
+  "note": "All output is deterministic; no language model was invoked.",
+  "store_events": [
+    {
+      "kind": "create",
+      "ref": {
+        "id": "source/pricing.py",
+        "rev": 1,
+        "sha256": "56dc29bbbc24464390a91cd4e4d1570b17aa20addf1e146adde737dbbaf6867e"
+      },
+      "value": {
+        "constraints": [
+          "Preserve the public function signature and the existing 10 percent rate."
+        ],
+        "file": "pricing.py",
+        "regression_checks": [
+          "discount(99) == 99",
+          "discount(101) == 90.9"
+        ],
+        "scope": "Single-file patch. Return a handoff summary; do not execute code.",
+        "source": "def discount(total):\n    if total > 100:\n        return total * 0.9\n    return total\n"
+      }
+    },
+    {
+      "delta": {
+        "base": {
+          "id": "source/pricing.py",
+          "rev": 1,
+          "sha256": "56dc29bbbc24464390a91cd4e4d1570b17aa20addf1e146adde737dbbaf6867e"
+        },
+        "remove": [],
+        "set": {
+          "regression_checks": [
+            "discount(99) == 99",
+            "discount(101) == 90.9",
+            "discount(100) == 90.0"
+          ]
+        }
+      },
+      "kind": "delta",
+      "result": {
+        "id": "source/pricing.py",
+        "rev": 2,
+        "sha256": "96706871f3bc7fa987cc67ada906610901eaae92290957924f5f3c8a4403e3bb"
+      }
+    }
+  ],
+  "wire": {
+    "artifacts": [
+      {
+        "ref": {
+          "id": "source/pricing.py",
+          "rev": 2,
+          "sha256": "96706871f3bc7fa987cc67ada906610901eaae92290957924f5f3c8a4403e3bb"
+        }
+      }
+    ],
+    "body": {
+      "next_step": "Implement this replacement and run the latest regression checks.",
+      "replacement": "if total >= 100:"
+    },
+    "from": "investigator",
+    "op": "result",
+    "task": "discount-boundary",
+    "to": "implementer",
+    "v": 1
+  }
+}

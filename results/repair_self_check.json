@@ -1,0 +1,273 @@
+{
+  "kind": "repair_evaluator_self_check",
+  "model_called": false,
+  "scope": "Six public synthetic numeric-function fixtures; no model performance measured",
+  "success": true,
+  "records": [
+    {
+      "task": "clamp",
+      "buggy": {
+        "task": "clamp",
+        "success": false,
+        "valid_program": true,
+        "passed": 2,
+        "total": 6,
+        "failures": [
+          {
+            "arguments": [
+              5,
+              0,
+              10
+            ],
+            "expected": 5,
+            "actual": 0
+          },
+          {
+            "arguments": [
+              15,
+              0,
+              10
+            ],
+            "expected": 10,
+            "actual": 0
+          },
+          {
+            "arguments": [
+              -5,
+              -9,
+              -2
+            ],
+            "expected": -5,
+            "actual": -9
+          },
+          {
+            "arguments": [
+              0,
+              -9,
+              -2
+            ],
+            "expected": -2,
+            "actual": -9
+          }
+        ]
+      },
+      "reference": {
+        "task": "clamp",
+        "success": true,
+        "valid_program": true,
+        "passed": 6,
+        "total": 6,
+        "failures": []
+      }
+    },
+    {
+      "task": "leap_year",
+      "buggy": {
+        "task": "leap_year",
+        "success": false,
+        "valid_program": true,
+        "passed": 4,
+        "total": 6,
+        "failures": [
+          {
+            "arguments": [
+              1900
+            ],
+            "expected": false,
+            "actual": true
+          },
+          {
+            "arguments": [
+              2100
+            ],
+            "expected": false,
+            "actual": true
+          }
+        ]
+      },
+      "reference": {
+        "task": "leap_year",
+        "success": true,
+        "valid_program": true,
+        "passed": 6,
+        "total": 6,
+        "failures": []
+      }
+    },
+    {
+      "task": "ceil_div",
+      "buggy": {
+        "task": "ceil_div",
+        "success": false,
+        "valid_program": true,
+        "passed": 3,
+        "total": 6,
+        "failures": [
+          {
+            "arguments": [
+              1,
+              7
+            ],
+            "expected": 1,
+            "actual": 0
+          },
+          {
+            "arguments": [
+              8,
+              7
+            ],
+            "expected": 2,
+            "actual": 1
+          },
+          {
+            "arguments": [
+              99,
+              10
+            ],
+            "expected": 10,
+            "actual": 9
+          }
+        ]
+      },
+      "reference": {
+        "task": "ceil_div",
+        "success": true,
+        "valid_program": true,
+        "passed": 6,
+        "total": 6,
+        "failures": []
+      }
+    },
+    {
+      "task": "inclusive_interval",
+      "buggy": {
+        "task": "inclusive_interval",
+        "success": false,
+        "valid_program": true,
+        "passed": 3,
+        "total": 6,
+        "failures": [
+          {
+            "arguments": [
+              0,
+              0,
+              5
+            ],
+            "expected": true,
+            "actual": false
+          },
+          {
+            "arguments": [
+              5,
+              0,
+              5
+            ],
+            "expected": true,
+            "actual": false
+          },
+          {
+            "arguments": [
+              2,
+              2,
+              2
+            ],
+            "expected": true,
+            "actual": false
+          }
+        ]
+      },
+      "reference": {
+        "task": "inclusive_interval",
+        "success": true,
+        "valid_program": true,
+        "passed": 6,
+        "total": 6,
+        "failures": []
+      }
+    },
+    {
+      "task": "inclusive_sum",
+      "buggy": {
+        "task": "inclusive_sum",
+        "success": false,
+        "valid_program": true,
+        "passed": 1,
+        "total": 5,
+        "failures": [
+          {
+            "arguments": [
+              1
+            ],
+            "expected": 1,
+            "actual": 0
+          },
+          {
+            "arguments": [
+              2
+            ],
+            "expected": 3,
+            "actual": 1
+          },
+          {
+            "arguments": [
+              5
+            ],
+            "expected": 15,
+            "actual": 10
+          },
+          {
+            "arguments": [
+              100
+            ],
+            "expected": 5050,
+            "actual": 4950
+          }
+        ]
+      },
+      "reference": {
+        "task": "inclusive_sum",
+        "success": true,
+        "valid_program": true,
+        "passed": 5,
+        "total": 5,
+        "failures": []
+      }
+    },
+    {
+      "task": "distance",
+      "buggy": {
+        "task": "distance",
+        "success": false,
+        "valid_program": true,
+        "passed": 3,
+        "total": 5,
+        "failures": [
+          {
+            "arguments": [
+              5,
+              1
+            ],
+            "expected": 4,
+            "actual": -4
+          },
+          {
+            "arguments": [
+              -3,
+              -8
+            ],
+            "expected": 5,
+            "actual": -5
+          }
+        ]
+      },
+      "reference": {
+        "task": "distance",
+        "success": true,
+        "valid_program": true,
+        "passed": 5,
+        "total": 5,
+        "failures": []
+      }
+    }
+  ]
+}
