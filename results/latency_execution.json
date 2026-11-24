@@ -1,0 +1,80 @@
+{
+  "cli_return_code": 0,
+  "command": [
+    "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+    "-m",
+    "handoff_lab.latency_experiment",
+    "evaluate",
+    "--selection",
+    "results/latency_selection.json",
+    "--selection-commit",
+    "eb6f9966260aec784f8eaa9ab98e3d0761f614f3",
+    "--output",
+    "results/latency.json"
+  ],
+  "cpu_count": 4,
+  "execution_disclosure_commit": "d4fd08c71a90b6bd14772ca799f4770245181e0e",
+  "execution_note_sha256": "7cba0c24b883d43d63ed57f5a8b2df6ba238fb2f952ede2f348bea10ff229a3d",
+  "finished_utc": "2026-11-24T07:24:50.679680+00:00",
+  "host_condition": "Tuning used the workspace host; held-out uses a clean GitHub CPU runner",
+  "measurement_finished_utc": "2026-11-24T07:24:50.592189+00:00",
+  "measurement_started": true,
+  "measurement_started_utc": "2026-11-24T07:23:31.695271+00:00",
+  "outputs": {
+    "completed_runs": 360,
+    "failed_runs": 0,
+    "full_bytes": 1009946,
+    "full_sha256": "c203f2d76cc027d06d04d2c669687c1c956e59c4183cac9690c3e0a19ad04e4a",
+    "missing_runs": 0,
+    "planned_runs": 360,
+    "summary_bytes": 549637,
+    "summary_sha256": "ef9560c5982aafbead5f76aefd7b37352e6c3120c771c44ccb53575beda31571"
+  },
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]",
+  "schema_version": 1,
+  "selection": {
+    "miss_guard": {
+      "family": "miss_guard",
+      "forgetting": null,
+      "interval": 4
+    },
+    "model": {
+      "family": "latency_model",
+      "forgetting": 0.5,
+      "interval": 4
+    },
+    "simple_baseline": "miss_guard_K4"
+  },
+  "selection_commit": "eb6f9966260aec784f8eaa9ab98e3d0761f614f3",
+  "source_commit": "fb2e4aa3e1a76705bd8fc4aaa05d8c293588574a",
+  "source_hashes": {
+    "docs/latency_design.md": "9b1c0a69b3c96a7c3ab44fbcaf9f1b205a7edd8fcad9e10273e57f1309b1304d",
+    "src/handoff_lab/adaptive_transport.py": "f2ebf9e8c83f75da48886ca05eeaccedcfe8164cf81fc04cbbdc1eaa16d184b4",
+    "src/handoff_lab/latency_experiment.py": "98bd2d4a4638be3a08eb55f8afcb67ee119e60fed0b7c2baebcdda8675c406aa",
+    "src/handoff_lab/network_experiment.py": "df79188b1f2f2d5f1c0542286ed341e15f6354cd021b5cb22e83421077fa42de",
+    "src/handoff_lab/protocol.py": "427613e6f9c0c0563a97417087ff8e3521a53370d07f1e71ec85abe5ecc887f8",
+    "src/handoff_lab/recovery_experiment.py": "fd32d0824f56c480b84c3c63555bd1847f3e27ce22663f9c3fab61bd40f8688f",
+    "tests/test_latency_experiment.py": "634025b271b29c7293cc9d54bd7007088085c18c6babb5b1e5655528d7629781"
+  },
+  "started_utc": "2026-11-24T07:23:29.076070+00:00",
+  "status": "raw_outputs_verified",
+  "unit_test_return_code": 0,
+  "unit_test_seconds": 1.720249962000004,
+  "workflow": {
+    "GITHUB_EVENT_NAME": "push",
+    "GITHUB_JOB": "heldout",
+    "GITHUB_REF": "refs/heads/main",
+    "GITHUB_REPOSITORY": "ConfusedDuckCollectibles/Research2",
+    "GITHUB_RUN_ATTEMPT": "1",
+    "GITHUB_RUN_ID": "45347593386",
+    "GITHUB_RUN_NUMBER": "1",
+    "GITHUB_SHA": "99bff23b84f30141d5d5241fed0ec3320080d255",
+    "GITHUB_WORKFLOW": "Frozen latency held-out run once",
+    "ImageOS": "ubuntu24",
+    "ImageVersion": "20261116.376.1",
+    "RUNNER_ARCH": "X64",
+    "RUNNER_OS": "Linux"
+  },
+  "wrapper_sha256": "bd6cf27bc6fb6f635c38a8f0748354c4872157278bbe46a7159c0d50b0b1f4fa"
+}
