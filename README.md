@@ -2,6 +2,14 @@
 
 A runnable research prototype for **typed agent handoffs, checked artifact references, and versioned shared state**. The question is whether a communication format and a state-reuse strategy reduce total work while preserving what a receiving agent needs.
 
+## Latest measured outcome: simple baselines still win
+
+The frozen real-wire study completed **216 of 216 loopback TCP runs with exact receiver reconstruction**. The recent re-probing policy was **never the fastest median among the four tested policies** across 18 workload/profile cases: simple cache/delta won 11 cases, and always-inline won 7.
+
+Recent re-probing beat cache/delta in three imposed delay/pacing conditions, but always-inline was faster in all three. This is a measured negative result for a general adaptive-speed claim. All messages contained actual serialized inline/reference/delta/recovery/ACK data, with real length framing, receiver-only cache loss, and charged waits. No production-network or LLM speed claim follows.
+
+Read the [complete all-case timing report](docs/network_results.md), [frozen network design](docs/network_design.md), [summary](results/network.json), and [full observations](results/network_full.json.gz). The next proposed gate is to optimize and charge actual completion time and controller overhead against both simple baselines on fresh profiles; that follow-up has **not** been executed.
+
 The first experiment is deliberately small and reproducible. **It does not establish a model speedup or a new universal AI language.** Structured packets still contain ordinary text. They make task identity, operations, references and revision checks explicit; they do not transfer neural hidden states.
 
 ## What works
@@ -15,6 +23,7 @@ The first experiment is deliberately small and reproducible. **It does not estab
 - A separate six-task numeric-function repair assay with acceptance cases and a bounded expression interpreter.
 - A systematic cache/admission experiment with 342 tuning workloads, 936 held-out workloads, strong direct-cache baselines, and cache-loss stress tests.
 - A separately frozen recovery experiment with recent-history estimation, bounded re-probing, and explicitly charged current-status feedback.
+- A real framed loopback TCP implementation with receiver-validated payloads, declared byte pacing/reply holdoff, and a frozen 216-run timing study.
 
 Python 3.10 or later is sufficient. The runtime and tests use the standard library; no model, tokenizer, GPU or API key is needed for the deterministic experiment.
 
@@ -37,7 +46,7 @@ handoff-lab benchmark
 
 The checked-in [deterministic report](results/deterministic.json) and [decoded example](results/demo.json) can be regenerated exactly. Local HTTP tests use a fake loopback server. **No real language-model endpoint was run to produce these checked-in results.**
 
-## Next experiment: when should an agent cache or send a delta?
+## Adaptive transport: when should an agent cache or send a delta?
 
 The [adaptive transport experiment](docs/adaptive_transport.md) varies artifact size, repeated use, update size, cache capability and deployment. It compares an online admission heuristic with fixed policies that have exactly the same caching/delta capabilities, including inline-once-then-reference without a redundant external store.
 
@@ -56,7 +65,7 @@ See the [readable result summary](results/adaptive_transport.json), [complete co
 
 The first adaptive policy could stop trying cache references after an early loss and never learn that retention recovered. We froze a [new design](docs/recovery_design.md), published its selected parameters before testing, then evaluated a recent-history policy with bounded re-probing on **720 new held-out grid cells and 16 fixed stress cases**.
 
-The new policy uses **19.33% fewer held-out bytes than the original online policy**, with exact healthy-case byte parity against the strong cache/delta baseline. Recovery segments without successful cache reuse fall from **120 to 6 out of 144**. It still uses **2.88% more bytes than the strong baseline**, while requiring **17.11% fewer logical protocol round trips**. Actual network latency and model performance remain unmeasured.
+The new policy uses **19.33% fewer held-out bytes than the original online policy**, with exact healthy-case byte parity against the strong cache/delta baseline. Recovery segments without successful cache reuse fall from **120 to 6 out of 144**. It still uses **2.88% more bytes than the strong baseline**, while requiring **17.11% fewer logical protocol round trips**. This recovery study counted logical exchanges; the later [real-wire study](docs/network_results.md) separately measured completion time. Model performance has not been measured.
 
 The negatives are included: stress bytes are **5.25% above the strong baseline**, and stress recovery censoring is slightly worse than the original. A separately priced cache-status intervention also fails to beat the strong baseline in aggregate bytes and adds exchanges. See the [measured report](docs/recovery_results.md), [summary](results/recovery.json), and [complete observations](results/recovery_full.json.gz) for the frozen comparisons and limitations.
 
