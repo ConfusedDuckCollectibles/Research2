@@ -1,0 +1,90 @@
+{
+  "candidate_scores": {
+    "w4_k2": {
+      "healthy_regressions": 0,
+      "total_bytes": 6759308
+    },
+    "w4_k4": {
+      "healthy_regressions": 0,
+      "total_bytes": 6725268
+    },
+    "w4_k8": {
+      "healthy_regressions": 0,
+      "total_bytes": 6779776
+    },
+    "w8_k2": {
+      "healthy_regressions": 0,
+      "total_bytes": 6788856
+    },
+    "w8_k4": {
+      "healthy_regressions": 0,
+      "total_bytes": 6769016
+    },
+    "w8_k8": {
+      "healthy_regressions": 0,
+      "total_bytes": 6855976
+    }
+  },
+  "design_commit": "94e5bfd0164f60cc7046d6719d8df74d218fa02d",
+  "design_sha256": "160fce998e3358154280cbff533ace8aa4d64b693303ea25b0c3cbb59db2365d",
+  "experiment": "cache_recovery_v1_selection",
+  "fixed_scores": {
+    "delta_sync": {
+      "cache_delta": 3355456,
+      "inline": 5289504,
+      "inline_once_cache": 3355456
+    },
+    "revision_cache": {
+      "cache_delta": 3513120,
+      "inline": 5289888,
+      "inline_once_cache": 3513120
+    }
+  },
+  "full_report": {
+    "file": "recovery_selection_full.json.gz",
+    "gzip_bytes": 7072,
+    "sha256": "dc2d7837f1b4bead8a42d8d1a35f4a8953a791b15b589468816540299ad3d3cc",
+    "tuning_rows_count": 192,
+    "uncompressed_bytes": 319002
+  },
+  "heldout_run": false,
+  "implementation_sha256": {
+    "src/handoff_lab/adaptive_transport.py": "f2ebf9e8c83f75da48886ca05eeaccedcfe8164cf81fc04cbbdc1eaa16d184b4",
+    "src/handoff_lab/protocol.py": "427613e6f9c0c0563a97417087ff8e3521a53370d07f1e71ec85abe5ecc887f8",
+    "src/handoff_lab/recovery_experiment.py": "fd32d0824f56c480b84c3c63555bd1847f3e27ce22663f9c3fab61bd40f8688f"
+  },
+  "model_calls_performed": 0,
+  "schema_version": 1,
+  "selected_fixed_by_topology": {
+    "delta_sync": "cache_delta",
+    "revision_cache": "cache_delta"
+  },
+  "selected_parameters": {
+    "interval": 4,
+    "window": 4
+  },
+  "selection_rule": "Minimum tuning aggregate bytes subject to zero healthy regressions; tie by W then K",
+  "selection_success": true,
+  "status_feedback_protocol": {
+    "capability_advertisement": {
+      "cache_status": true
+    },
+    "encoding": "protocol.canonical: UTF-8 JSON, sorted keys, compact separators",
+    "information_assumption": "No eviction between the charged status reply and data delivery",
+    "reference_schema": {
+      "id": "artifact identifier",
+      "rev": "positive integer",
+      "sha256": "64 lowercase hexadecimal characters"
+    },
+    "reply_fields": {
+      "have": "reference object or null",
+      "kind": "cache_status_reply"
+    },
+    "request_fields": {
+      "kind": "cache_status",
+      "task": "sweep",
+      "want": "reference object"
+    }
+  },
+  "tuning_workloads": 192
+}
