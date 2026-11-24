@@ -13,6 +13,7 @@ The first experiment is deliberately small and reproducible. **It does not estab
 - A four-condition benchmark that separates representation from state reuse.
 - An opt-in HTTP runner for a Chat Completions-style endpoint, recording observed usage, request latency, answer correctness and failures.
 - A separate six-task numeric-function repair assay with acceptance cases and a bounded expression interpreter.
+- A systematic cache/admission experiment with 342 tuning workloads, 936 held-out workloads, strong direct-cache baselines, and cache-loss stress tests.
 
 Python 3.10 or later is sufficient. The runtime and tests use the standard library; no model, tokenizer, GPU or API key is needed for the deterministic experiment.
 
@@ -34,6 +35,21 @@ handoff-lab benchmark
 ```
 
 The checked-in [deterministic report](results/deterministic.json) and [decoded example](results/demo.json) can be regenerated exactly. Local HTTP tests use a fake loopback server. **No real language-model endpoint was run to produce these checked-in results.**
+
+## Next experiment: when should an agent cache or send a delta?
+
+The [adaptive transport experiment](docs/adaptive_transport.md) varies artifact size, repeated use, update size, cache capability and deployment. It compares an online admission heuristic with fixed policies that have exactly the same caching/delta capabilities, including inline-once-then-reference without a redundant external store.
+
+On the held-out synthetic grid, online admission reduces total application payload bytes by **18.93% with external-store delta synchronization** and **23.85% with external-store revision caching**, relative to the fixed comparator selected on tuning data. It adds **zero byte savings over the strong direct-cache baseline**. Across independent cache-loss and stop-after-purchase stress cases, it uses **12.60% more bytes** than the tuning-selected fixed comparator.
+
+Those mixed results narrow the engineering target: better admission under uncertain reuse can matter for an external store; ordinary direct caching and deltas already capture the measured gains in the healthy direct-deployment cases. This remains a synthetic byte experiment, with no token, model quality, cost or speed claim.
+
+```bash
+PYTHONPATH=src python -m handoff_lab.adaptive_transport \
+  --measure-time --output results/adaptive_transport.json
+```
+
+See the [readable result summary](results/adaptive_transport.json), [complete compressed observations](results/adaptive_transport_full.json.gz), and [design, accounting, oracles and failure cases](docs/adaptive_transport.md). The new experiment includes setup, store writes, acknowledgments, recovery requests and recovery responses. Its online strategy uses only current/past observations; future-aware comparisons are labeled as oracles.
 
 ## Initial result: smaller packets did not imply less total traffic
 

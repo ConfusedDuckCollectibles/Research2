@@ -1,0 +1,296 @@
+{
+  "assumptions": [
+    "Exact UTF-8 application payload bytes; no model tokens, model accuracy or inference latency measured.",
+    "All policies get identical inline-seeded consumer caches, delta support and charged acknowledgments.",
+    "Direct deployment permits cache references without a store; external_store requires published recoverable snapshots.",
+    "Compare policies within each deployment; direct and external_store provide different availability contracts.",
+    "Inline, shared snapshots and adjacent-revision top-level deltas reconstruct identical artifact objects.",
+    "Sparse full snapshots may install any source revision in this simulator; the original ArtifactStore API is unchanged.",
+    "Capability setup, store writes/acks, reference recovery requests/responses and receiver acknowledgments are counted.",
+    "No-cache drops contents after every handoff; other caches retain only the last artifact, unless silently lost.",
+    "Policies know current/past artifacts and last acknowledged retention, never future workload length or current hidden eviction.",
+    "Threshold and per-deployment/topology fixed comparator are selected only on the separate tuning grid.",
+    "A per-workload best-fixed comparison and hindsight best single admission time are explicitly labeled oracles.",
+    "Online rent/buy and cache-loss estimation are established heuristics; no novelty or competitive guarantee claimed.",
+    "Optional perf_counter elapsed decision timings include simulator serialization/quoting and policy observation, not network or LLM time.",
+    "No real requests, compression, packet framing, storage I/O, authentication or model-context costs are simulated."
+  ],
+  "experiment": "online_transport_break_even",
+  "full_report": {
+    "file": "adaptive_transport_full.json.gz",
+    "gzip_bytes": 83915,
+    "heldout_rows": 936,
+    "sha256": "0603b4b99d60408a0ad264961e1d130bbf8c23046babbcb5f90240df42b0b34d",
+    "stress_rows": 15,
+    "uncompressed_bytes": 3352912
+  },
+  "groups": {
+    "direct:delta_sync": {
+      "hindsight_best_fixed_per_workload_bytes": 12266592,
+      "online_losses_vs_best_fixed_workloads": 0,
+      "online_reduction_vs_tuning_selected_fixed_fraction": 0.0,
+      "online_ties_vs_best_fixed_workloads": 156,
+      "online_to_hindsight_best_fixed_max_ratio": 1.0,
+      "online_to_hindsight_best_fixed_median_ratio": 1.0,
+      "online_wins_vs_best_fixed_workloads": 0,
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 473.51353689956335,
+        "cache_snapshot": 331.5026189956332,
+        "inline": 257.75647248908297,
+        "inline_once_cache": 462.227635371179,
+        "online": 1471.437768558952
+      },
+      "policy_total_bytes": {
+        "cache_delta": 12266592,
+        "cache_snapshot": 20259528,
+        "inline": 45464960,
+        "inline_once_cache": 12266592,
+        "online": 12266592
+      },
+      "tuning_selected_fixed_total_bytes": 12266592,
+      "workloads": 156
+    },
+    "direct:no_cache": {
+      "hindsight_best_fixed_per_workload_bytes": 45469228,
+      "online_losses_vs_best_fixed_workloads": 0,
+      "online_reduction_vs_tuning_selected_fixed_fraction": 0.0,
+      "online_ties_vs_best_fixed_workloads": 156,
+      "online_to_hindsight_best_fixed_max_ratio": 1.0,
+      "online_to_hindsight_best_fixed_median_ratio": 1.0,
+      "online_wins_vs_best_fixed_workloads": 0,
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 290.0515351528384,
+        "cache_snapshot": 278.32334934497817,
+        "inline": 265.90692205240174,
+        "inline_once_cache": 281.47929279475983,
+        "online": 790.9358113537118
+      },
+      "policy_total_bytes": {
+        "cache_delta": 45469228,
+        "cache_snapshot": 45469228,
+        "inline": 45469228,
+        "inline_once_cache": 45469228,
+        "online": 45469228
+      },
+      "tuning_selected_fixed_total_bytes": 45469228,
+      "workloads": 156
+    },
+    "direct:revision_cache": {
+      "hindsight_best_fixed_per_workload_bytes": 20260152,
+      "online_losses_vs_best_fixed_workloads": 0,
+      "online_reduction_vs_tuning_selected_fixed_fraction": 0.0,
+      "online_ties_vs_best_fixed_workloads": 156,
+      "online_to_hindsight_best_fixed_max_ratio": 1.0,
+      "online_to_hindsight_best_fixed_median_ratio": 1.0,
+      "online_wins_vs_best_fixed_workloads": 0,
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 337.2569718340611,
+        "cache_snapshot": 341.1978246724891,
+        "inline": 263.46147008733624,
+        "inline_once_cache": 306.95888362445413,
+        "online": 1151.1031709606987
+      },
+      "policy_total_bytes": {
+        "cache_delta": 20260152,
+        "cache_snapshot": 20260152,
+        "inline": 45465584,
+        "inline_once_cache": 20260152,
+        "online": 20260152
+      },
+      "tuning_selected_fixed_total_bytes": 20260152,
+      "workloads": 156
+    },
+    "external_store:delta_sync": {
+      "hindsight_best_fixed_per_workload_bytes": 18114196,
+      "online_losses_vs_best_fixed_workloads": 102,
+      "online_reduction_vs_tuning_selected_fixed_fraction": 0.1892976078953128,
+      "online_ties_vs_best_fixed_workloads": 54,
+      "online_to_hindsight_best_fixed_max_ratio": 1.4867929542736493,
+      "online_to_hindsight_best_fixed_median_ratio": 1.0302171354582694,
+      "online_wins_vs_best_fixed_workloads": 0,
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 155.9951975982533,
+        "cache_snapshot": 103.46086441048035,
+        "inline": 269.57724475982536,
+        "inline_once_cache": 162.1332783842795,
+        "online": 929.7564665938864
+      },
+      "policy_total_bytes": {
+        "cache_delta": 24024852,
+        "cache_snapshot": 40073304,
+        "inline": 45466208,
+        "inline_once_cache": 23623130,
+        "online": 19151328
+      },
+      "tuning_selected_fixed_total_bytes": 23623130,
+      "workloads": 156
+    },
+    "external_store:no_cache": {
+      "hindsight_best_fixed_per_workload_bytes": 45470476,
+      "online_losses_vs_best_fixed_workloads": 0,
+      "online_reduction_vs_tuning_selected_fixed_fraction": 0.0,
+      "online_ties_vs_best_fixed_workloads": 156,
+      "online_to_hindsight_best_fixed_max_ratio": 1.0,
+      "online_to_hindsight_best_fixed_median_ratio": 1.0,
+      "online_wins_vs_best_fixed_workloads": 0,
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 127.04600698689957,
+        "cache_snapshot": 107.88252358078603,
+        "inline": 251.1070903930131,
+        "inline_once_cache": 133.39068755458516,
+        "online": 658.786447161572
+      },
+      "policy_total_bytes": {
+        "cache_delta": 57790206,
+        "cache_snapshot": 65814432,
+        "inline": 45470476,
+        "inline_once_cache": 57388484,
+        "online": 45470476
+      },
+      "tuning_selected_fixed_total_bytes": 45470476,
+      "workloads": 156
+    },
+    "external_store:revision_cache": {
+      "hindsight_best_fixed_per_workload_bytes": 23217240,
+      "online_losses_vs_best_fixed_workloads": 92,
+      "online_reduction_vs_tuning_selected_fixed_fraction": 0.23848087618862246,
+      "online_ties_vs_best_fixed_workloads": 64,
+      "online_to_hindsight_best_fixed_max_ratio": 1.4867642065167643,
+      "online_to_hindsight_best_fixed_median_ratio": 1.0231866904424607,
+      "online_wins_vs_best_fixed_workloads": 0,
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 126.48657423580785,
+        "cache_snapshot": 102.08600895196507,
+        "inline": 258.6970611353712,
+        "inline_once_cache": 131.84255633187774,
+        "online": 830.6998403930131
+      },
+      "policy_total_bytes": {
+        "cache_delta": 32049702,
+        "cache_snapshot": 40073928,
+        "inline": 45466832,
+        "inline_once_cache": 31647980,
+        "online": 24100542
+      },
+      "tuning_selected_fixed_total_bytes": 31647980,
+      "workloads": 156
+    }
+  },
+  "heldout_summary": {
+    "hindsight_best_fixed_per_workload_bytes": 164797884,
+    "online_losses_vs_best_fixed_workloads": 194,
+    "online_reduction_vs_tuning_selected_fixed_fraction": 0.06724518413751635,
+    "online_ties_vs_best_fixed_workloads": 742,
+    "online_to_hindsight_best_fixed_max_ratio": 1.4867929542736493,
+    "online_to_hindsight_best_fixed_median_ratio": 1.0,
+    "online_wins_vs_best_fixed_workloads": 0,
+    "policy_mean_decision_elapsed_microseconds_per_handoff": {
+      "cache_delta": 251.72497045123725,
+      "cache_snapshot": 210.7421983260553,
+      "inline": 261.0843768195051,
+      "inline_once_cache": 246.33872234352256,
+      "online": 972.119917503639
+    },
+    "policy_total_bytes": {
+      "cache_delta": 191860732,
+      "cache_snapshot": 231950572,
+      "inline": 272803288,
+      "inline_once_cache": 190655566,
+      "online": 166718318
+    },
+    "tuning_selected_fixed_total_bytes": 178737558,
+    "workloads": 936
+  },
+  "model_calls_performed": 0,
+  "schema_version": 1,
+  "stress_summary": {
+    "hindsight_best_fixed_per_workload_bytes": 1226783,
+    "online_losses_vs_best_fixed_workloads": 11,
+    "online_reduction_vs_tuning_selected_fixed_fraction": -0.126046369928289,
+    "online_ties_vs_best_fixed_workloads": 2,
+    "online_to_hindsight_best_fixed_max_ratio": 1.9054029934470538,
+    "online_to_hindsight_best_fixed_median_ratio": 1.0984650630011454,
+    "online_wins_vs_best_fixed_workloads": 2,
+    "policy_mean_decision_elapsed_microseconds_per_handoff": {
+      "cache_delta": 173.3290865139949,
+      "cache_snapshot": 163.6131679389313,
+      "inline": 175.3597913486005,
+      "inline_once_cache": 176.64307633587785,
+      "online": 721.3681832061069
+    },
+    "policy_total_bytes": {
+      "cache_delta": 1282579,
+      "cache_snapshot": 1506913,
+      "inline": 1907736,
+      "inline_once_cache": 1280140,
+      "online": 1441497
+    },
+    "tuning_selected_fixed_total_bytes": 1280140,
+    "workloads": 15
+  },
+  "tokenizer_used": null,
+  "tuning": {
+    "aggregate_online_bytes": {
+      "0.0": 11413450,
+      "0.5": 11413450,
+      "1.0": 11592550,
+      "2.0": 11901010,
+      "4.0": 12285780
+    },
+    "fixed_policy_scores": {
+      "direct:delta_sync": {
+        "cache_delta": 759343,
+        "cache_snapshot": 1151543,
+        "inline": 3071893,
+        "inline_once_cache": 759343
+      },
+      "direct:no_cache": {
+        "cache_delta": 3072613,
+        "cache_snapshot": 3072613,
+        "inline": 3072613,
+        "inline_once_cache": 3072613
+      },
+      "direct:revision_cache": {
+        "cache_delta": 1151771,
+        "cache_snapshot": 1151771,
+        "inline": 3072121,
+        "inline_once_cache": 1151771
+      },
+      "external_store:delta_sync": {
+        "cache_delta": 1359026,
+        "cache_snapshot": 2153986,
+        "inline": 3072349,
+        "inline_once_cache": 1343579
+      },
+      "external_store:no_cache": {
+        "cache_delta": 3814325,
+        "cache_snapshot": 4211805,
+        "inline": 3073069,
+        "inline_once_cache": 3798878
+      },
+      "external_store:revision_cache": {
+        "cache_delta": 1756734,
+        "cache_snapshot": 2154214,
+        "inline": 3072577,
+        "inline_once_cache": 1741287
+      }
+    },
+    "selected_fixed_by_deployment_and_topology": {
+      "direct:delta_sync": "cache_delta",
+      "direct:no_cache": "cache_delta",
+      "direct:revision_cache": "cache_delta",
+      "external_store:delta_sync": "inline_once_cache",
+      "external_store:no_cache": "inline",
+      "external_store:revision_cache": "inline_once_cache"
+    },
+    "selected_threshold": 0.0,
+    "threshold_candidates": [
+      0.0,
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "workloads": 342
+  }
+}
