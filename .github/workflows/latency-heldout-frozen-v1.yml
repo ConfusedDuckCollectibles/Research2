@@ -1,0 +1,54 @@
+name: Frozen latency held-out run once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/latency-heldout-frozen-v1.yml'
+      - 'scripts/run_latency_heldout_once.py'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: latency-heldout-frozen-v1
+  cancel-in-progress: false
+
+jobs:
+  heldout:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12.14'
+      - name: Verify inputs, test, and run the unchanged frozen CLI once
+        id: measure
+        run: python scripts/run_latency_heldout_once.py run
+      - name: Preserve complete observations, logs, and execution metadata
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: latency-heldout-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: |
+            results/latency.json
+            results/latency_full.json.gz
+            results/latency_execution.json
+            latency_execution/
+          retention-days: 90
+          compression-level: 0
+          if-no-files-found: warn
+      - name: Preserve only verified raw outputs with a guarded normal push
+        if: ${{ always() && steps.measure.outcome == 'success' }}
+        run: python scripts/run_latency_heldout_once.py publish
+      - name: Preserve the publication receipt separately
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: latency-publication-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: latency_execution/publication.json
+          retention-days: 90
+          if-no-files-found: warn

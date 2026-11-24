@@ -2,11 +2,11 @@
   "schema_version": 1,
   "status": "active",
   "worker_id": "chatgpt-active-research-20261124T052021Z",
-  "updated_at_utc": "2026-11-24T07:13:38Z",
-  "lease_expires_at_utc": "2026-11-24T09:13:38Z",
+  "updated_at_utc": "2026-11-24T07:23:01Z",
+  "lease_expires_at_utc": "2026-11-24T09:23:01Z",
   "current_task": "Measure a causal completion-time controller against strong simple transport policies",
-  "stage": "heldout_execution_prepared",
-  "next_action": "Execute the unchanged held-out CLI once on a clean GitHub CPU runner after the executor disconnected; preserve all results and audit the five frozen gates",
+  "stage": "heldout_workflow_prepared",
+  "next_action": "Observe the single frozen held-out Actions run, recover its complete artifact/results, audit every gate and publish an interpretation",
   "last_completed_study": "docs/network_results.md",
   "last_completed_commit": "1cda86785e6c3b19e2a4c808d561d0b621b1c031",
   "known_result": "324/324 tuning runs reconstructed correctly; selected latency model lambda=0.5 K=4; selected simple baseline miss_guard_K4 is stronger on tuning",
@@ -18,5 +18,6 @@
   "source_commit": "fb2e4aa3e1a76705bd8fc4aaa05d8c293588574a",
   "tuning_selection_path": "results/latency_selection.json",
   "selection_commit": "eb6f9966260aec784f8eaa9ab98e3d0761f614f3",
-  "execution_note": "docs/latency_execution_amendment.md"
+  "execution_note": "docs/latency_execution_amendment.md",
+  "workflow_path": ".github/workflows/latency-heldout-frozen-v1.yml"
 }
