@@ -1,0 +1,28 @@
+name: Preserve audited latency report
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'publication/latency_bundle.json'
+      - 'scripts/publish_latency_results.py'
+      - '.github/workflows/publish-latency-results.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-latency-results
+  cancel-in-progress: false
+
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify and publish existing report bytes
+        run: python scripts/publish_latency_results.py

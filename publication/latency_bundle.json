@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "stage": "tuning",
+  "summary_file": "latency_selection.json",
+  "summary_sha256": "fe6746bfb74ea2786398a0522b2e3631f4fa9a207906a443cb47b5f7715f64d3",
+  "full_file": "latency_selection_full.json.gz",
+  "bytes": 989005,
+  "sha256": "990cdeb9af4fcedfb7d54dad4fecb1f2bda3408440572caa1799ca4aa66f3d9e",
+  "parts": [
+    {
+      "path": "publication/latency_parts/tuning-000.part",
+      "bytes": 500000,
+      "sha256": "f7093cc6793ce09883010f1ebe56b58022310e2bd71a93fc7d9464295ebce4ed"
+    },
+    {
+      "path": "publication/latency_parts/tuning-001.part",
+      "bytes": 489005,
+      "sha256": "9446c51f782cafdcb3cb10cc3c58191387f9259eba5cd2206650ca022d02f5c5"
+    }
+  ],
+  "purpose": "Lossless publication of existing audited observations; no experiment is executed."
+}
