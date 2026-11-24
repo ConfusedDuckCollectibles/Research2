@@ -1,0 +1,31 @@
+name: Audit existing latency observations
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit_latency_outputs.py'
+      - '.github/workflows/audit-latency-outputs.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12.14'
+      - name: Recompute published stream accounting and gates without running a benchmark
+        run: python scripts/audit_latency_outputs.py
+      - name: Preserve audit checks and independently recomputed statistics
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: latency-audit-${{ github.run_id }}-attempt-${{ github.run_attempt }}
+          path: audit/latency_audit.json
+          retention-days: 90
+          if-no-files-found: warn
