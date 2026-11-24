@@ -14,6 +14,7 @@ The first experiment is deliberately small and reproducible. **It does not estab
 - An opt-in HTTP runner for a Chat Completions-style endpoint, recording observed usage, request latency, answer correctness and failures.
 - A separate six-task numeric-function repair assay with acceptance cases and a bounded expression interpreter.
 - A systematic cache/admission experiment with 342 tuning workloads, 936 held-out workloads, strong direct-cache baselines, and cache-loss stress tests.
+- A separately frozen recovery experiment with recent-history estimation, bounded re-probing, and explicitly charged current-status feedback.
 
 Python 3.10 or later is sufficient. The runtime and tests use the standard library; no model, tokenizer, GPU or API key is needed for the deterministic experiment.
 
@@ -50,6 +51,14 @@ PYTHONPATH=src python -m handoff_lab.adaptive_transport \
 ```
 
 See the [readable result summary](results/adaptive_transport.json), [complete compressed observations](results/adaptive_transport_full.json.gz), and [design, accounting, oracles and failure cases](docs/adaptive_transport.md). The new experiment includes setup, store writes, acknowledgments, recovery requests and recovery responses. Its online strategy uses only current/past observations; future-aware comparisons are labeled as oracles.
+
+## Recovery follow-up: fixing the policy's observation trap
+
+The first adaptive policy could stop trying cache references after an early loss and never learn that retention recovered. We froze a [new design](docs/recovery_design.md), published its selected parameters before testing, then evaluated a recent-history policy with bounded re-probing on **720 new held-out grid cells and 16 fixed stress cases**.
+
+The new policy uses **19.33% fewer held-out bytes than the original online policy**, with exact healthy-case byte parity against the strong cache/delta baseline. Recovery segments without successful cache reuse fall from **120 to 6 out of 144**. It still uses **2.88% more bytes than the strong baseline**, while requiring **17.11% fewer logical protocol round trips**. Actual network latency and model performance remain unmeasured.
+
+The negatives are included: stress bytes are **5.25% above the strong baseline**, and stress recovery censoring is slightly worse than the original. A separately priced cache-status intervention also fails to beat the strong baseline in aggregate bytes and adds exchanges. See the [measured report](docs/recovery_results.md), [summary](results/recovery.json), and [complete observations](results/recovery_full.json.gz) for the frozen comparisons and limitations.
 
 ## Initial result: smaller packets did not imply less total traffic
 

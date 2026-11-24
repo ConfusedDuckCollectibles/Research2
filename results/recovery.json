@@ -1,0 +1,1132 @@
+{
+  "assumptions": [
+    "Direct cache only; every policy has the same retained content, delta support and charged acknowledgments.",
+    "Loss phases use absolute indices; policy code does not receive phase, future length or current hidden loss.",
+    "Recent-history parameters and fixed comparator choices were frozen on new tuning data before held-out outcomes.",
+    "Re-probes are ordinary charged data deliveries; failures include their full recovery traffic.",
+    "Status feedback is a separately priced information intervention, with serialized request/reply and an additional exchange.",
+    "Status replies are accurate and no eviction occurs between status and data delivery.",
+    "Application payload bytes and logical exchanges exclude real network framing, I/O, compression and latency.",
+    "No token, model accuracy, inference speed, real-agent trace or scientific-novelty claim is established.",
+    "Phase bytes exclude one-time capability setup; workload totals include it.",
+    "Recovery segments with no eligible opportunities are retained and separately counted; censored is not necessarily failure."
+  ],
+  "by_schedule": {
+    "healthy": {
+      "forced_reprobes": 0,
+      "hindsight_best_fixed_per_workload_bytes": 2961894,
+      "phase_total_bytes_excluding_initial_setup": {
+        "healthy": {
+          "cache_delta": 2947926,
+          "inline": 12063528,
+          "inline_once_cache": 2947926,
+          "original_online": 2947926,
+          "recent_reprobe": 2947926,
+          "status_feedback": 3514800
+        },
+        "loss": {
+          "cache_delta": 0,
+          "inline": 0,
+          "inline_once_cache": 0,
+          "original_online": 0,
+          "recent_reprobe": 0,
+          "status_feedback": 0
+        },
+        "recovery": {
+          "cache_delta": 0,
+          "inline": 0,
+          "inline_once_cache": 0,
+          "original_online": 0,
+          "recent_reprobe": 0,
+          "status_feedback": 0
+        }
+      },
+      "policy_logical_round_trips": {
+        "cache_delta": 2304,
+        "inline": 2304,
+        "inline_once_cache": 2304,
+        "original_online": 2304,
+        "recent_reprobe": 2304,
+        "status_feedback": 4224
+      },
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 291.16230425347226,
+        "inline": 189.20418272569444,
+        "inline_once_cache": 286.80659027777773,
+        "original_online": 977.8826475694445,
+        "recent_reprobe": 783.9275269097222,
+        "status_feedback": 830.1957682291667
+      },
+      "policy_total_bytes": {
+        "cache_delta": 2961894,
+        "inline": 12077496,
+        "inline_once_cache": 2961894,
+        "original_online": 2961894,
+        "recent_reprobe": 2961894,
+        "status_feedback": 3528768
+      },
+      "recent_losses_vs_hindsight_fixed_workloads": 0,
+      "recent_reduction_vs_original_fraction": 0.0,
+      "recent_reduction_vs_selected_fixed_fraction": 0.0,
+      "recent_to_hindsight_best_fixed_median_ratio": 1.0,
+      "recent_to_hindsight_best_fixed_worst_ratio": 1.0,
+      "recovery_use": {
+        "cache_delta": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "inline": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "inline_once_cache": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "original_online": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "recent_reprobe": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "status_feedback": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        }
+      },
+      "status_reduction_vs_cache_delta_fraction": -0.19138902337490804,
+      "tuning_selected_fixed_total_bytes": 2961894,
+      "workloads": 144
+    },
+    "healthy_loss_recovery": {
+      "forced_reprobes": 108,
+      "hindsight_best_fixed_per_workload_bytes": 6218488,
+      "phase_total_bytes_excluding_initial_setup": {
+        "healthy": {
+          "cache_delta": 1044360,
+          "inline": 2638440,
+          "inline_once_cache": 1044360,
+          "original_online": 1044360,
+          "recent_reprobe": 1044360,
+          "status_feedback": 1141710
+        },
+        "loss": {
+          "cache_delta": 4033140,
+          "inline": 3769560,
+          "inline_once_cache": 4033140,
+          "original_online": 3974852,
+          "recent_reprobe": 3902004,
+          "status_feedback": 3892308
+        },
+        "recovery": {
+          "cache_delta": 1142646,
+          "inline": 5655528,
+          "inline_once_cache": 1142646,
+          "original_online": 1287484,
+          "recent_reprobe": 1405872,
+          "status_feedback": 1424550
+        }
+      },
+      "policy_logical_round_trips": {
+        "cache_delta": 2940,
+        "inline": 2304,
+        "inline_once_cache": 2940,
+        "original_online": 2852,
+        "recent_reprobe": 2628,
+        "status_feedback": 4224
+      },
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 300.75766319444443,
+        "inline": 200.60513975694442,
+        "inline_once_cache": 282.2381614583333,
+        "original_online": 977.2775616319445,
+        "recent_reprobe": 790.09023828125,
+        "status_feedback": 854.3264596354167
+      },
+      "policy_total_bytes": {
+        "cache_delta": 6234114,
+        "inline": 12077496,
+        "inline_once_cache": 6234114,
+        "original_online": 6320664,
+        "recent_reprobe": 6366204,
+        "status_feedback": 6472536
+      },
+      "recent_losses_vs_hindsight_fixed_workloads": 28,
+      "recent_reduction_vs_original_fraction": -0.007204939227903884,
+      "recent_reduction_vs_selected_fixed_fraction": -0.021188255460198535,
+      "recent_to_hindsight_best_fixed_median_ratio": 1.0,
+      "recent_to_hindsight_best_fixed_worst_ratio": 1.1587728530776127,
+      "recovery_use": {
+        "cache_delta": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 36,
+          "segments_with_opportunities": 36
+        },
+        "inline": {
+          "censored_segments": 36,
+          "censored_segments_with_opportunities": 36,
+          "mean_eligible_before_success": null,
+          "segments": 36,
+          "segments_with_opportunities": 36
+        },
+        "inline_once_cache": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 36,
+          "segments_with_opportunities": 36
+        },
+        "original_online": {
+          "censored_segments": 12,
+          "censored_segments_with_opportunities": 12,
+          "mean_eligible_before_success": 0.16666666666666666,
+          "segments": 36,
+          "segments_with_opportunities": 36
+        },
+        "recent_reprobe": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 1.2222222222222223,
+          "segments": 36,
+          "segments_with_opportunities": 36
+        },
+        "status_feedback": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 36,
+          "segments_with_opportunities": 36
+        }
+      },
+      "status_reduction_vs_cache_delta_fraction": -0.03824472892218522,
+      "tuning_selected_fixed_total_bytes": 6234114,
+      "workloads": 144
+    },
+    "intermittent_recovery": {
+      "forced_reprobes": 223,
+      "hindsight_best_fixed_per_workload_bytes": 7341117,
+      "phase_total_bytes_excluding_initial_setup": {
+        "healthy": {
+          "cache_delta": 753840,
+          "inline": 753840,
+          "inline_once_cache": 753840,
+          "original_online": 753840,
+          "recent_reprobe": 753840,
+          "status_feedback": 753840
+        },
+        "loss": {
+          "cache_delta": 5597373,
+          "inline": 6219648,
+          "inline_once_cache": 5597373,
+          "original_online": 6248916,
+          "recent_reprobe": 6114265,
+          "status_feedback": 5472612
+        },
+        "recovery": {
+          "cache_delta": 1026558,
+          "inline": 5090040,
+          "inline_once_cache": 1026558,
+          "original_online": 5090040,
+          "recent_reprobe": 1283486,
+          "status_feedback": 1280142
+        }
+      },
+      "policy_logical_round_trips": {
+        "cache_delta": 3165,
+        "inline": 2304,
+        "inline_once_cache": 3165,
+        "original_online": 2412,
+        "recent_reprobe": 2639,
+        "status_feedback": 4224
+      },
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 296.4864318576389,
+        "inline": 206.60866710069445,
+        "inline_once_cache": 286.892765625,
+        "original_online": 987.2448967013888,
+        "recent_reprobe": 797.6233068576389,
+        "status_feedback": 808.5798754340277
+      },
+      "policy_total_bytes": {
+        "cache_delta": 7391739,
+        "inline": 12077496,
+        "inline_once_cache": 7391739,
+        "original_online": 12106764,
+        "recent_reprobe": 8165559,
+        "status_feedback": 7520562
+      },
+      "recent_losses_vs_hindsight_fixed_workloads": 101,
+      "recent_reduction_vs_original_fraction": 0.32553744336636936,
+      "recent_reduction_vs_selected_fixed_fraction": -0.104687137898132,
+      "recent_to_hindsight_best_fixed_median_ratio": 1.042039042549133,
+      "recent_to_hindsight_best_fixed_worst_ratio": 1.2712002905393136,
+      "recovery_use": {
+        "cache_delta": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 36,
+          "segments_with_opportunities": 36
+        },
+        "inline": {
+          "censored_segments": 36,
+          "censored_segments_with_opportunities": 36,
+          "mean_eligible_before_success": null,
+          "segments": 36,
+          "segments_with_opportunities": 36
+        },
+        "inline_once_cache": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 36,
+          "segments_with_opportunities": 36
+        },
+        "original_online": {
+          "censored_segments": 36,
+          "censored_segments_with_opportunities": 36,
+          "mean_eligible_before_success": null,
+          "segments": 36,
+          "segments_with_opportunities": 36
+        },
+        "recent_reprobe": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 1.5277777777777777,
+          "segments": 36,
+          "segments_with_opportunities": 36
+        },
+        "status_feedback": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 36,
+          "segments_with_opportunities": 36
+        }
+      },
+      "status_reduction_vs_cache_delta_fraction": -0.01742796925053769,
+      "tuning_selected_fixed_total_bytes": 7391739,
+      "workloads": 144
+    },
+    "loss_recovery": {
+      "forced_reprobes": 198,
+      "hindsight_best_fixed_per_workload_bytes": 6295664,
+      "phase_total_bytes_excluding_initial_setup": {
+        "healthy": {
+          "cache_delta": 753840,
+          "inline": 753840,
+          "inline_once_cache": 753840,
+          "original_online": 753840,
+          "recent_reprobe": 753840,
+          "status_feedback": 753840
+        },
+        "loss": {
+          "cache_delta": 4003518,
+          "inline": 3769200,
+          "inline_once_cache": 4003518,
+          "original_online": 3798468,
+          "recent_reprobe": 3862260,
+          "status_feedback": 3895422
+        },
+        "recovery": {
+          "cache_delta": 1555398,
+          "inline": 7540488,
+          "inline_once_cache": 1555398,
+          "original_online": 7540488,
+          "recent_reprobe": 2398278,
+          "status_feedback": 1929342
+        }
+      },
+      "policy_logical_round_trips": {
+        "cache_delta": 2958,
+        "inline": 2304,
+        "inline_once_cache": 2958,
+        "original_online": 2412,
+        "recent_reprobe": 2532,
+        "status_feedback": 4224
+      },
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 286.35601909722226,
+        "inline": 188.22588541666667,
+        "inline_once_cache": 284.2528198784722,
+        "original_online": 988.7205885416666,
+        "recent_reprobe": 800.5387608506945,
+        "status_feedback": 818.4085568576389
+      },
+      "policy_total_bytes": {
+        "cache_delta": 6326724,
+        "inline": 12077496,
+        "inline_once_cache": 6326724,
+        "original_online": 12106764,
+        "recent_reprobe": 7028346,
+        "status_feedback": 6592572
+      },
+      "recent_losses_vs_hindsight_fixed_workloads": 96,
+      "recent_reduction_vs_original_fraction": 0.4194694800361186,
+      "recent_reduction_vs_selected_fixed_fraction": -0.11089815202939146,
+      "recent_to_hindsight_best_fixed_median_ratio": 1.0366739606126916,
+      "recent_to_hindsight_best_fixed_worst_ratio": 1.2697999307510501,
+      "recovery_use": {
+        "cache_delta": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "inline": {
+          "censored_segments": 72,
+          "censored_segments_with_opportunities": 72,
+          "mean_eligible_before_success": null,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "inline_once_cache": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "original_online": {
+          "censored_segments": 72,
+          "censored_segments_with_opportunities": 72,
+          "mean_eligible_before_success": null,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "recent_reprobe": {
+          "censored_segments": 6,
+          "censored_segments_with_opportunities": 6,
+          "mean_eligible_before_success": 2.4545454545454546,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "status_feedback": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        }
+      },
+      "status_reduction_vs_cache_delta_fraction": -0.04201985103190853,
+      "tuning_selected_fixed_total_bytes": 6326724,
+      "workloads": 144
+    },
+    "permanent_loss": {
+      "forced_reprobes": 408,
+      "hindsight_best_fixed_per_workload_bytes": 12077496,
+      "phase_total_bytes_excluding_initial_setup": {
+        "healthy": {
+          "cache_delta": 753840,
+          "inline": 753840,
+          "inline_once_cache": 753840,
+          "original_online": 753840,
+          "recent_reprobe": 753840,
+          "status_feedback": 753840
+        },
+        "loss": {
+          "cache_delta": 12072966,
+          "inline": 11309688,
+          "inline_once_cache": 12072966,
+          "original_online": 11338956,
+          "recent_reprobe": 11496540,
+          "status_feedback": 11680488
+        },
+        "recovery": {
+          "cache_delta": 0,
+          "inline": 0,
+          "inline_once_cache": 0,
+          "original_online": 0,
+          "recent_reprobe": 0,
+          "status_feedback": 0
+        }
+      },
+      "policy_logical_round_trips": {
+        "cache_delta": 4224,
+        "inline": 2304,
+        "inline_once_cache": 4224,
+        "original_online": 2412,
+        "recent_reprobe": 2820,
+        "status_feedback": 4224
+      },
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 288.7039040798611,
+        "inline": 237.58812282986113,
+        "inline_once_cache": 281.67138498263887,
+        "original_online": 993.2547408854166,
+        "recent_reprobe": 794.002734375,
+        "status_feedback": 723.7496866319445
+      },
+      "policy_total_bytes": {
+        "cache_delta": 12840774,
+        "inline": 12077496,
+        "inline_once_cache": 12840774,
+        "original_online": 12106764,
+        "recent_reprobe": 12264348,
+        "status_feedback": 12448296
+      },
+      "recent_losses_vs_hindsight_fixed_workloads": 108,
+      "recent_reduction_vs_original_fraction": -0.01301619491385142,
+      "recent_reduction_vs_selected_fixed_fraction": 0.04489028465106548,
+      "recent_to_hindsight_best_fixed_median_ratio": 1.0214902773365044,
+      "recent_to_hindsight_best_fixed_worst_ratio": 1.12691466083151,
+      "recovery_use": {
+        "cache_delta": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "inline": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "inline_once_cache": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "original_online": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "recent_reprobe": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "status_feedback": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        }
+      },
+      "status_reduction_vs_cache_delta_fraction": 0.030564979961488326,
+      "tuning_selected_fixed_total_bytes": 12840774,
+      "workloads": 144
+    }
+  },
+  "by_topology": {
+    "delta_sync": {
+      "forced_reprobes": 534,
+      "hindsight_best_fixed_per_workload_bytes": 16248157,
+      "phase_total_bytes_excluding_initial_setup": {
+        "healthy": {
+          "cache_delta": 2597322,
+          "inline": 8481744,
+          "inline_once_cache": 2597322,
+          "original_online": 2597322,
+          "recent_reprobe": 2597322,
+          "status_feedback": 2969340
+        },
+        "loss": {
+          "cache_delta": 13142340,
+          "inline": 12534048,
+          "inline_once_cache": 13142340,
+          "original_online": 12717118,
+          "recent_reprobe": 12785630,
+          "status_feedback": 12488046
+        },
+        "recovery": {
+          "cache_delta": 1073742,
+          "inline": 9143028,
+          "inline_once_cache": 1073742,
+          "original_online": 6738448,
+          "recent_reprobe": 1803346,
+          "status_feedback": 1589766
+        }
+      },
+      "policy_logical_round_trips": {
+        "cache_delta": 8046,
+        "inline": 5760,
+        "inline_once_cache": 8046,
+        "original_online": 6226,
+        "recent_reprobe": 6530,
+        "status_feedback": 11160
+      },
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 319.1755199652778,
+        "inline": 216.8715965277778,
+        "inline_once_cache": 310.0281402777778,
+        "original_online": 1032.2166875,
+        "recent_reprobe": 854.7033685763889,
+        "status_feedback": 866.3320951388889
+      },
+      "policy_total_bytes": {
+        "cache_delta": 16847604,
+        "inline": 30193020,
+        "inline_once_cache": 16847604,
+        "original_online": 22087088,
+        "recent_reprobe": 17220498,
+        "status_feedback": 17081352
+      },
+      "recent_losses_vs_hindsight_fixed_workloads": 165,
+      "recent_reduction_vs_original_fraction": 0.2203364246115196,
+      "recent_reduction_vs_selected_fixed_fraction": -0.022133354986263898,
+      "recent_to_hindsight_best_fixed_median_ratio": 1.0,
+      "recent_to_hindsight_best_fixed_worst_ratio": 1.2712002905393136,
+      "recovery_use": {
+        "cache_delta": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "inline": {
+          "censored_segments": 72,
+          "censored_segments_with_opportunities": 72,
+          "mean_eligible_before_success": null,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "inline_once_cache": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "original_online": {
+          "censored_segments": 60,
+          "censored_segments_with_opportunities": 60,
+          "mean_eligible_before_success": 0.3333333333333333,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "recent_reprobe": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 2.0972222222222223,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "status_feedback": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        }
+      },
+      "status_reduction_vs_cache_delta_fraction": -0.013874257728279993,
+      "tuning_selected_fixed_total_bytes": 16847604,
+      "workloads": 360
+    },
+    "revision_cache": {
+      "forced_reprobes": 403,
+      "hindsight_best_fixed_per_workload_bytes": 18646502,
+      "phase_total_bytes_excluding_initial_setup": {
+        "healthy": {
+          "cache_delta": 3656484,
+          "inline": 8481744,
+          "inline_once_cache": 3656484,
+          "original_online": 3656484,
+          "recent_reprobe": 3656484,
+          "status_feedback": 3948690
+        },
+        "loss": {
+          "cache_delta": 12564657,
+          "inline": 12534048,
+          "inline_once_cache": 12564657,
+          "original_online": 12644074,
+          "recent_reprobe": 12589439,
+          "status_feedback": 12452784
+        },
+        "recovery": {
+          "cache_delta": 2650860,
+          "inline": 9143028,
+          "inline_once_cache": 2650860,
+          "original_online": 7179564,
+          "recent_reprobe": 3284290,
+          "status_feedback": 3044268
+        }
+      },
+      "policy_logical_round_trips": {
+        "cache_delta": 7545,
+        "inline": 5760,
+        "inline_once_cache": 7545,
+        "original_online": 6166,
+        "recent_reprobe": 6393,
+        "status_feedback": 9960
+      },
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 266.2110090277778,
+        "inline": 192.02120260416666,
+        "inline_once_cache": 258.71654861111114,
+        "original_online": 937.5354866319444,
+        "recent_reprobe": 731.7696583333334,
+        "status_feedback": 747.7720435763888
+      },
+      "policy_total_bytes": {
+        "cache_delta": 18907641,
+        "inline": 30194460,
+        "inline_once_cache": 18907641,
+        "original_online": 23515762,
+        "recent_reprobe": 19565853,
+        "status_feedback": 19481382
+      },
+      "recent_losses_vs_hindsight_fixed_workloads": 168,
+      "recent_reduction_vs_original_fraction": 0.16796857358906758,
+      "recent_reduction_vs_selected_fixed_fraction": -0.03481195776881951,
+      "recent_to_hindsight_best_fixed_median_ratio": 1.0,
+      "recent_to_hindsight_best_fixed_worst_ratio": 1.2711953659820958,
+      "recovery_use": {
+        "cache_delta": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "inline": {
+          "censored_segments": 72,
+          "censored_segments_with_opportunities": 72,
+          "mean_eligible_before_success": null,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "inline_once_cache": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "original_online": {
+          "censored_segments": 60,
+          "censored_segments_with_opportunities": 60,
+          "mean_eligible_before_success": 0,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "recent_reprobe": {
+          "censored_segments": 6,
+          "censored_segments_with_opportunities": 6,
+          "mean_eligible_before_success": 1.6666666666666667,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        },
+        "status_feedback": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": 0,
+          "segments": 72,
+          "segments_with_opportunities": 72
+        }
+      },
+      "status_reduction_vs_cache_delta_fraction": -0.030344398859699195,
+      "tuning_selected_fixed_total_bytes": 18907641,
+      "workloads": 360
+    }
+  },
+  "design_commit": "94e5bfd0164f60cc7046d6719d8df74d218fa02d",
+  "design_sha256": "160fce998e3358154280cbff533ace8aa4d64b693303ea25b0c3cbb59db2365d",
+  "experiment": "cache_recovery_v1_evaluation",
+  "full_report": {
+    "file": "recovery_full.json.gz",
+    "gzip_bytes": 136929,
+    "heldout_rows_count": 720,
+    "sha256": "ef2c73765a9dbc4a3c9eee15a543b5d026f47bab4211848a1a8c4725dfb97dd0",
+    "stress_rows_count": 16,
+    "uncompressed_bytes": 5876187
+  },
+  "healthy_controls": {
+    "all_no_loss_workloads": 324,
+    "recent_bytes_equal_cache_delta_every_no_loss_workload": true,
+    "recent_bytes_equal_cache_delta_every_workload": true,
+    "summary": {
+      "forced_reprobes": 0,
+      "hindsight_best_fixed_per_workload_bytes": 2961894,
+      "phase_total_bytes_excluding_initial_setup": {
+        "healthy": {
+          "cache_delta": 2947926,
+          "inline": 12063528,
+          "inline_once_cache": 2947926,
+          "original_online": 2947926,
+          "recent_reprobe": 2947926,
+          "status_feedback": 3514800
+        },
+        "loss": {
+          "cache_delta": 0,
+          "inline": 0,
+          "inline_once_cache": 0,
+          "original_online": 0,
+          "recent_reprobe": 0,
+          "status_feedback": 0
+        },
+        "recovery": {
+          "cache_delta": 0,
+          "inline": 0,
+          "inline_once_cache": 0,
+          "original_online": 0,
+          "recent_reprobe": 0,
+          "status_feedback": 0
+        }
+      },
+      "policy_logical_round_trips": {
+        "cache_delta": 2304,
+        "inline": 2304,
+        "inline_once_cache": 2304,
+        "original_online": 2304,
+        "recent_reprobe": 2304,
+        "status_feedback": 4224
+      },
+      "policy_mean_decision_elapsed_microseconds_per_handoff": {
+        "cache_delta": 291.16230425347226,
+        "inline": 189.20418272569444,
+        "inline_once_cache": 286.80659027777773,
+        "original_online": 977.8826475694445,
+        "recent_reprobe": 783.9275269097222,
+        "status_feedback": 830.1957682291667
+      },
+      "policy_total_bytes": {
+        "cache_delta": 2961894,
+        "inline": 12077496,
+        "inline_once_cache": 2961894,
+        "original_online": 2961894,
+        "recent_reprobe": 2961894,
+        "status_feedback": 3528768
+      },
+      "recent_losses_vs_hindsight_fixed_workloads": 0,
+      "recent_reduction_vs_original_fraction": 0.0,
+      "recent_reduction_vs_selected_fixed_fraction": 0.0,
+      "recent_to_hindsight_best_fixed_median_ratio": 1.0,
+      "recent_to_hindsight_best_fixed_worst_ratio": 1.0,
+      "recovery_use": {
+        "cache_delta": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "inline": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "inline_once_cache": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "original_online": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "recent_reprobe": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        },
+        "status_feedback": {
+          "censored_segments": 0,
+          "censored_segments_with_opportunities": 0,
+          "mean_eligible_before_success": null,
+          "segments": 0,
+          "segments_with_opportunities": 0
+        }
+      },
+      "status_reduction_vs_cache_delta_fraction": -0.19138902337490804,
+      "tuning_selected_fixed_total_bytes": 2961894,
+      "workloads": 144
+    },
+    "workloads": 144
+  },
+  "heldout_summary": {
+    "forced_reprobes": 937,
+    "hindsight_best_fixed_per_workload_bytes": 34894659,
+    "phase_total_bytes_excluding_initial_setup": {
+      "healthy": {
+        "cache_delta": 6253806,
+        "inline": 16963488,
+        "inline_once_cache": 6253806,
+        "original_online": 6253806,
+        "recent_reprobe": 6253806,
+        "status_feedback": 6918030
+      },
+      "loss": {
+        "cache_delta": 25706997,
+        "inline": 25068096,
+        "inline_once_cache": 25706997,
+        "original_online": 25361192,
+        "recent_reprobe": 25375069,
+        "status_feedback": 24940830
+      },
+      "recovery": {
+        "cache_delta": 3724602,
+        "inline": 18286056,
+        "inline_once_cache": 3724602,
+        "original_online": 13918012,
+        "recent_reprobe": 5087636,
+        "status_feedback": 4634034
+      }
+    },
+    "policy_logical_round_trips": {
+      "cache_delta": 15591,
+      "inline": 11520,
+      "inline_once_cache": 15591,
+      "original_online": 12392,
+      "recent_reprobe": 12923,
+      "status_feedback": 21120
+    },
+    "policy_mean_decision_elapsed_microseconds_per_handoff": {
+      "cache_delta": 292.6932644965278,
+      "inline": 204.4463995659722,
+      "inline_once_cache": 284.3723444444445,
+      "original_online": 984.8760870659722,
+      "recent_reprobe": 793.2365134548611,
+      "status_feedback": 807.052069357639
+    },
+    "policy_total_bytes": {
+      "cache_delta": 35755245,
+      "inline": 60387480,
+      "inline_once_cache": 35755245,
+      "original_online": 45602850,
+      "recent_reprobe": 36786351,
+      "status_feedback": 36562734
+    },
+    "recent_losses_vs_hindsight_fixed_workloads": 333,
+    "recent_reduction_vs_original_fraction": 0.19333219305372362,
+    "recent_reduction_vs_selected_fixed_fraction": -0.028837894971772693,
+    "recent_to_hindsight_best_fixed_median_ratio": 1.0,
+    "recent_to_hindsight_best_fixed_worst_ratio": 1.2712002905393136,
+    "recovery_use": {
+      "cache_delta": {
+        "censored_segments": 0,
+        "censored_segments_with_opportunities": 0,
+        "mean_eligible_before_success": 0,
+        "segments": 144,
+        "segments_with_opportunities": 144
+      },
+      "inline": {
+        "censored_segments": 144,
+        "censored_segments_with_opportunities": 144,
+        "mean_eligible_before_success": null,
+        "segments": 144,
+        "segments_with_opportunities": 144
+      },
+      "inline_once_cache": {
+        "censored_segments": 0,
+        "censored_segments_with_opportunities": 0,
+        "mean_eligible_before_success": 0,
+        "segments": 144,
+        "segments_with_opportunities": 144
+      },
+      "original_online": {
+        "censored_segments": 120,
+        "censored_segments_with_opportunities": 120,
+        "mean_eligible_before_success": 0.16666666666666666,
+        "segments": 144,
+        "segments_with_opportunities": 144
+      },
+      "recent_reprobe": {
+        "censored_segments": 6,
+        "censored_segments_with_opportunities": 6,
+        "mean_eligible_before_success": 1.891304347826087,
+        "segments": 144,
+        "segments_with_opportunities": 144
+      },
+      "status_feedback": {
+        "censored_segments": 0,
+        "censored_segments_with_opportunities": 0,
+        "mean_eligible_before_success": 0,
+        "segments": 144,
+        "segments_with_opportunities": 144
+      }
+    },
+    "status_reduction_vs_cache_delta_fraction": -0.022583791552819754,
+    "tuning_selected_fixed_total_bytes": 35755245,
+    "workloads": 720
+  },
+  "implementation_sha256": {
+    "src/handoff_lab/adaptive_transport.py": "f2ebf9e8c83f75da48886ca05eeaccedcfe8164cf81fc04cbbdc1eaa16d184b4",
+    "src/handoff_lab/protocol.py": "427613e6f9c0c0563a97417087ff8e3521a53370d07f1e71ec85abe5ecc887f8",
+    "src/handoff_lab/recovery_experiment.py": "fd32d0824f56c480b84c3c63555bd1847f3e27ce22663f9c3fab61bd40f8688f"
+  },
+  "model_calls_performed": 0,
+  "schema_version": 1,
+  "selected_fixed_by_topology": {
+    "delta_sync": "cache_delta",
+    "revision_cache": "cache_delta"
+  },
+  "selection_parameters": {
+    "interval": 4,
+    "window": 4
+  },
+  "status_feedback_protocol": {
+    "capability_advertisement": {
+      "cache_status": true
+    },
+    "encoding": "protocol.canonical: UTF-8 JSON, sorted keys, compact separators",
+    "information_assumption": "No eviction between the charged status reply and data delivery",
+    "reference_schema": {
+      "id": "artifact identifier",
+      "rev": "positive integer",
+      "sha256": "64 lowercase hexadecimal characters"
+    },
+    "reply_fields": {
+      "have": "reference object or null",
+      "kind": "cache_status_reply"
+    },
+    "request_fields": {
+      "kind": "cache_status",
+      "task": "sweep",
+      "want": "reference object"
+    }
+  },
+  "stress_summary": {
+    "forced_reprobes": 52,
+    "hindsight_best_fixed_per_workload_bytes": 1067185,
+    "phase_total_bytes_excluding_initial_setup": {
+      "healthy": {
+        "cache_delta": 62220,
+        "inline": 142428,
+        "inline_once_cache": 62220,
+        "original_online": 62220,
+        "recent_reprobe": 62220,
+        "status_feedback": 72250
+      },
+      "loss": {
+        "cache_delta": 748144,
+        "inline": 679536,
+        "inline_once_cache": 748144,
+        "original_online": 724059,
+        "recent_reprobe": 716708,
+        "status_feedback": 722418
+      },
+      "recovery": {
+        "cache_delta": 264474,
+        "inline": 1019476,
+        "inline_once_cache": 264474,
+        "original_online": 534126,
+        "recent_reprobe": 352388,
+        "status_feedback": 360260
+      }
+    },
+    "policy_logical_round_trips": {
+      "cache_delta": 894,
+      "inline": 672,
+      "inline_once_cache": 894,
+      "original_online": 820,
+      "recent_reprobe": 797,
+      "status_feedback": 1252
+    },
+    "policy_mean_decision_elapsed_microseconds_per_handoff": {
+      "cache_delta": 241.00536904761904,
+      "inline": 152.1628779761905,
+      "inline_once_cache": 245.19066369047619,
+      "original_online": 825.2572380952381,
+      "recent_reprobe": 667.3265208333333,
+      "status_feedback": 655.6318839285715
+    },
+    "policy_total_bytes": {
+      "cache_delta": 1076390,
+      "inline": 1842992,
+      "inline_once_cache": 1076390,
+      "original_online": 1321957,
+      "recent_reprobe": 1132868,
+      "status_feedback": 1156480
+    },
+    "recent_losses_vs_hindsight_fixed_workloads": 13,
+    "recent_reduction_vs_original_fraction": 0.14303717897026913,
+    "recent_reduction_vs_selected_fixed_fraction": -0.05246982970856284,
+    "recent_to_hindsight_best_fixed_median_ratio": 1.0502237228885762,
+    "recent_to_hindsight_best_fixed_worst_ratio": 1.526957257723233,
+    "recovery_use": {
+      "cache_delta": {
+        "censored_segments": 0,
+        "censored_segments_with_opportunities": 0,
+        "mean_eligible_before_success": 0,
+        "segments": 44,
+        "segments_with_opportunities": 44
+      },
+      "inline": {
+        "censored_segments": 44,
+        "censored_segments_with_opportunities": 44,
+        "mean_eligible_before_success": null,
+        "segments": 44,
+        "segments_with_opportunities": 44
+      },
+      "inline_once_cache": {
+        "censored_segments": 0,
+        "censored_segments_with_opportunities": 0,
+        "mean_eligible_before_success": 0,
+        "segments": 44,
+        "segments_with_opportunities": 44
+      },
+      "original_online": {
+        "censored_segments": 8,
+        "censored_segments_with_opportunities": 8,
+        "mean_eligible_before_success": 0.1388888888888889,
+        "segments": 44,
+        "segments_with_opportunities": 44
+      },
+      "recent_reprobe": {
+        "censored_segments": 9,
+        "censored_segments_with_opportunities": 9,
+        "mean_eligible_before_success": 0.8285714285714286,
+        "segments": 44,
+        "segments_with_opportunities": 44
+      },
+      "status_feedback": {
+        "censored_segments": 0,
+        "censored_segments_with_opportunities": 0,
+        "mean_eligible_before_success": 0,
+        "segments": 44,
+        "segments_with_opportunities": 44
+      }
+    },
+    "status_reduction_vs_cache_delta_fraction": -0.07440611674207309,
+    "tuning_selected_fixed_total_bytes": 1076390,
+    "workloads": 16
+  },
+  "tokenizer_used": null
+}
